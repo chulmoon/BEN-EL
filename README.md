@@ -2,21 +2,16 @@
 
 We propose a Bayesian elastic net that uses empirical likelihood and develop an efficient tuning of Hamiltonian Monte Carlo for posterior sampling. The proposed model relaxes the assumptions on the identity of the error distribution, performs well when the variables are highly correlated, and enables more straightforward inference by providing posterior distributions of the regression coefficients. Simulation studies and case study on air pollution data are carried and show that the proposed method performs better than the existing methods.
 
-# Data Availability
-All data used in simulation studies are generated randomly and the air pollution data are from McDonald et al. [^1]. 
-
-# Simulation and Case Study
-1. Simulation studies
-
+# Simulation Study
  - Generating data
    * Run R files in `./simulation/data/` to generate data for simulation studies.
  - Fitting models
-   * For BEN-EL, estimate the parameters first (`simulation1_BENEL_parameter.R`, `simulation2_BENEL_parameter.R`, `simulation3_BENEL_l1_parameter.R` , and `simulation3_BENEL_l2_parameter.R`) and fit the models (`simulation1_BENELr.R`, `simulation2_BENELr.R`, `simulation3_BENEL_l1.R` , and `simulation3_BENEL_l2.R`)
-   * For all other models (BEN, BL, EN, and LADL), run the corresponding R files.
+   * For BEN-EL, the initial step size ($\epsilon$) and penalty parameters ($\lambda_1$ and $\lambda_2$) are estimated first and fit the model. For example, for simulation 1, run `simulation1_BENEL_parameter.R` first and fit the model using `simulation1_BENEL.R`.
+   * For the other methods (BEN, BL, EN, and LADL), run the corresponding R files. For example, for the BEN model of simulation 1, run `simulation1_BEN.R`.
    * For summary of results, run `simulation1_result.R`, `simulation2_result.R`, and `simulation3_result.R`.
 
-2. Air pollution case study
+# Air Pollution Case Study
 
-- Run `pollution.R` for applications and plots. `pollution.Rdata` is the data file from McDonald et al. [1].
+- Run `pollution.R` for applications and plots. `pollution.Rdata` is the data file from McDonald et al. [^1].
 
 [^1]: McDonald, G. C. and Schwing, R. C. (1973) Instabilities of regression estimates relating air pollution to mortality, Technometrics, 15, 463-482.
